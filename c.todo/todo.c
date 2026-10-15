@@ -42,19 +42,21 @@ int main() {
             if (count == 0) {
                 printf("暂无待办。\n");
             } else {
+            	int i;
                 printf("\n--- 待办列表 ---\n");
-                for (int i = 0; i < count; i++) {
+                for (i = 0; i < count; i++) {
                     printf("%d. %s\n", i + 1, todos[i]);
                 }
             }
         }
         else if (choice == 3) {
+        	int i;
             fp = fopen("todos.txt", "w");
             if (fp == NULL) {
                 printf("保存失败！\n");
                 return 1;
             }
-            for (int i = 0; i < count; i++) {
+            for ( i = 0; i < count; i++) {
                 fprintf(fp, "%s\n", todos[i]);
             }
             fclose(fp);
