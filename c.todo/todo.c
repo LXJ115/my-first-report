@@ -1,15 +1,13 @@
-#include <stdio.h>
+#include <stdio.h> //引入头文件
 #include <string.h>
 
-#define MAX 100
+#define MAX 100 //MAX 等价100
 
 int main() {
     char todos[MAX][100];
     int count = 0;
     int choice;
-    FILE *fp;
-
-    // 启动时读取文件
+    FILE *fp; // 启动时读取文件
     fp = fopen("todos.txt", "r");
     if (fp != NULL) {
         while (fgets(todos[count], 100, fp) != NULL) {
@@ -36,8 +34,8 @@ int main() {
             }
             printf("输入待办内容：");
             fgets(todos[count], 100, stdin);
-            todos[count][strcspn(todos[count], "\n")] = '\0';
-            count++;
+            todos[count][strcspn(todos[count], "\n")] = '\0'; //删掉读进来的换行符
+            count++; //任务组数加1
             printf("添加成功！\n");
         }
         else if (choice == 2) {
@@ -63,7 +61,7 @@ int main() {
             printf("已保存，退出。\n");
             break;
         }
-        else {
+        else { //输入不正确
             printf("无效选择，请重新输入。\n");
         }
     }
